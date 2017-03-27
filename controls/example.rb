@@ -7,7 +7,7 @@ control '3.1' do
   describe file('/boot/grub/grub.cfg') do
     it { should exist }
     it { should be_owned_by 'root' }
-    its('group') { should eq 'root'}
+    its('group') { should eq 'root' }
   end
 end
 
@@ -82,6 +82,11 @@ control '5.1.1' do
   title '5.1.1 Ensure NIS is not installed (Scored)'
   desc 'The Network Information Service (NIS), formerly known as Yellow Pages, is a client-server directory service protocol used to distribute system configuration files.'
   describe package('nis') do
-    it { should_not be_installed}
+    it { should_not be_installed }
   end
+end
+
+describe file('/etc/annie.txt') do
+  it { should exist }
+  its('content') { should match /Annie was here/ }
 end
