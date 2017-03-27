@@ -85,8 +85,3 @@ control '5.1.1' do
     it { should_not be_installed }
   end
 end
-
-describe file('/etc/annie.txt') do
-  it { should exist }
-  its('content') { should match /Annie was here/ }
-end
